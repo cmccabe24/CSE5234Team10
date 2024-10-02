@@ -20,14 +20,14 @@ const ShippingEntry = () => {
                 type='text'
                 required
                 onChange={(e) =>
-                {location.state.order.address_1 = e.target.value}}
+                {order.address_1 = e.target.value}}
             />
             <br/>
             <label>Address 2</label>
             <input
                 type='text'
                 onChange={(e) =>
-                {location.state.order.address_2 = e.target.value}}
+                {order.address_2 = e.target.value}}
             />
             <br/>
             <label>City</label>
@@ -35,7 +35,7 @@ const ShippingEntry = () => {
                 type='text'
                 required
                 onChange={(e) =>
-                {location.state.order.city = e.target.value}}
+                {order.city = e.target.value}}
             />
             <br/>
             <label>State</label>
@@ -43,7 +43,7 @@ const ShippingEntry = () => {
                 type='text'
                 required
                 onChange={(e) =>
-                {location.state.order.state = e.target.value}}
+                {order.state = e.target.value}}
             />
             <br/>
             <label>Address 2</label>
@@ -51,10 +51,10 @@ const ShippingEntry = () => {
                 type='number'
                 required
                 onChange={(e) =>
-                {location.state.order.zip = e.target.value}}
+                {order.zip = e.target.value}}
             />
             <br/>
-            <button className='button'>View Order</button>
+            <button className='button'>Review order</button>
             </form>
             </div>
     );
