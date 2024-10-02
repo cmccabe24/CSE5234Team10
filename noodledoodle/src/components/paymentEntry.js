@@ -1,8 +1,8 @@
 //test
 import React from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 
-const paymentEntry = () => {
+const PaymentEntry = () => {
 	let location = useLocation();
 	const [order, setOrder ] = location.state;
     const navigate = useNavigate();
@@ -57,4 +57,4 @@ return (
     );		
 };
 
-export default paymentEntry;
+export default PaymentEntry;
