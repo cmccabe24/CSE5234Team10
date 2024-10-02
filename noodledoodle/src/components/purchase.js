@@ -6,7 +6,7 @@ const titleStyle = {
     textAlign: 'center'
 };
 
-const Purchase = () => {
+const purchase = () => {
     let title = "purchase page";
 
     return (
@@ -16,5 +16,5 @@ const Purchase = () => {
     );
 };
 
-export default Purchase;
+export default purchase;
 
