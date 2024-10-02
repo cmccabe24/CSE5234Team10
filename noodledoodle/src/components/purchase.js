@@ -1,14 +1,20 @@
 import React from "react";
 
-const purchase = () => {
+const titleStyle = {
+    fontFamily: 'fantasy',
+    fontSize: '36px',
+    textAlign: 'center'
+};
+
+const Purchase = () => {
     let title = "purchase page";
 
     return (
         <div>
-            <h1>{title}</h1>
+            <h1 style={titleStyle}>{title}</h1> 
         </div>
     );
 };
 
-export default purchase;
+export default Purchase;
 
