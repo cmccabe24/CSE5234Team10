@@ -1,16 +1,30 @@
 import React from 'react';
+import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
-const Confirmation = () => {
-  const title = "Order Confirmation"; // Define the title variable
+const viewConfirmation = () => {
+	let location = useLocation();
+	const [order, setOrder ] = location.state;
 
-  return (
-    <div>
-      <h1>{title}</h1>
-      <p>Thank you for your purchase! Your order has been confirmed.</p>
-      <p>Order details and shipping information will be sent to your email.</p>
-      {/* Add more details here if needed */}
-    </div>
-  );
-}
+	console.log('order: ', order);
+	return (
+		<div>
+			<label>Thank You For Shopping With Noodle Doodle!</label>
+			<br/>
+			<plaintext>Your order number is: 790832474327341</plaintext>
+			<br/>
+			<plaintext>Order Summary: </plaintext>
+			<br/>
+			<h1>
+                Product 1 {order.buyQuantity[0]}
+                Product 2 {order.buyQuantity[1]} 
+                Product 3 {order.buyQuantity[2]} 
+                Product 4 {order.buyQuantity[3]} 
+                Product 5 {order.buyQuantity[4]} 
+            </h1>
+		</div>
+	);
 
-export default Confirmation;
+};
+
+export default viewConfirmation;
