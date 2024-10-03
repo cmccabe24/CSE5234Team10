@@ -1,6 +1,6 @@
 import React from "react";
 
-const purchase = () => {
+const Purchase = () => {
     let title = "purchase page";
 
     return (
@@ -10,5 +10,5 @@ const purchase = () => {
     );
 };
 
-export default purchase;
+export default Purchase;
 
