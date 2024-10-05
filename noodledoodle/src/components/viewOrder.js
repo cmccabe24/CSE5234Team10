@@ -7,15 +7,24 @@ const ViewOrder = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const{ order } = location.state || { order: {} };
+    const{ order } = location.state;
+
+    console.log("order : ", order);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/purchase/viewConfirmation', { state: { order } });
+        navigate('/purchase/viewConfirmation', { state: { order: order } });
     };
 
-    // Calculate total cost by summing the quantities
-    const totalCost = order.buyQuantity.reduce((total, qty) => total + qty, 0);
+    const productPrices = [1, 1, 1, 1, 1]; 
+
+    let totalCost = 0;
+    
+    // for loop to calculate the total cost
+    for (let i = 0; i < order.buyQuantity.length; i++) {
+        totalCost += order.buyQuantity[i] * productPrices[i]; 
+    }
+
 
     return (
         <div>

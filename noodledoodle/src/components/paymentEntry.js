@@ -5,27 +5,24 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const PaymentEntry = () => {
 	// changed to const from let because we won't be reassigning location 
 	const location = useLocation();
+	const prevOrder = location.state.order;
+	const [order, setOrder] = useState(prevOrder);
     const navigate = useNavigate();
 
-	// making sure that state is defined 
-	const { order, setOrder } = location.state || { order: {}, setOrder: () => {} }; 
-
     const handleSubmit = (e) => {
-		e.preventDefault();
-		// navigate to shipping entry page once the payment information is submitted 
-	    navigate('/purchase/shippingEntry', { state: { order, setOrder } });
+		// pass the state to shippingEntry
+	    navigate('/purchase/shippingEntry', { state: { order: order }});
     }; 
 
+	
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
-		setOrder((prevOrder) => ({
-			...prevOrder,
+		setOrder((order) => ({
+			...order,
 			[name]: value,
 		}));
 	};
-
-	//console.log('order: ', orderState);
-
+	
 	return ( 
     	<div>
 			<h2> Payment Information </h2> 
@@ -37,6 +34,7 @@ const PaymentEntry = () => {
 					name='credit_card_number' 
 					required
 					onChange={handleInputChange}
+					
 				/>
 				<br/>
         		
@@ -44,7 +42,7 @@ const PaymentEntry = () => {
 				<input
 					type='text'
 					// matching key in the order object
-					name='expir_date'
+					name='expiration_date'
 					required
 					onChange={handleInputChange}
 				/>

@@ -8,18 +8,18 @@ const ShippingEntry = () => {
 	const location = useLocation();
     const navigate = useNavigate();
 
-	// making sure that state is defined 
-	const { order, setOrder } = location.state || { order: {}, setOrder: () => {} }; 
+    const  prevOrder = location.state.order;
+	const [order, setOrder] = useState(prevOrder); 
+
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        navigate('/purchase/viewOrder', { state: { order, setOrder } });
+        navigate('/purchase/viewOrder', { state: { order: order } });
     }
 
     const handleInputChange = (e) => {
 		const { name, value } = e.target;
-		setOrder((prevOrder) => ({
-			...prevOrder,
+		setOrder((order) => ({
+			...order,
 			[name]: value,
 		}));
 	};

@@ -22,104 +22,105 @@ const Purchase = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/purchase/paymentEntry', { order: order, setOrder: setOrder });
+        navigate('/purchase/paymentEntry', { state: {order: order}});
         console.log('order: ', order);
     };
     
     return (
         <div style={{ backgroundColor: '#f7f0e6', minHeight: '100vh', padding: '20px' }}>
-           
-            <h1 style={styles.title}>{title}</h1>
+            <form onSubmit ={handleSubmit}>
+                <h1 style={styles.title}>{title}</h1>
 
-            {/* Flexbox container for products */}
-            <div style={styles.productContainer}>
-                {/* Product 1 */}
-                <div style={styles.productItem}>
-                    <img src="https://via.placeholder.com/150" alt="Product 1" style={styles.productImage} />
-                    <h2>Product 1</h2>
-                    <label>Quantity</label>
-                    <input
-                        type="number"
-                        required
-                        onChange={(e) => { 
-                            const newQuantity = [...order.buyQuantity];
-                            newQuantity[0] = e.target.value;
-                            setOrder({ ...order, buyQuantity: newQuantity });
-                        }}
-                    />
-                </div>
+                {/* Flexbox container for products */}
+                <div style={styles.productContainer}>
+                    {/* Product 1 */}
+                    <div style={styles.productItem}>
+                        <img src="https://via.placeholder.com/150" alt="Product 1" style={styles.productImage} />
+                        <h2>Product 1</h2>
+                        <label>Quantity</label>
+                        <input
+                            type="number"
+                            required
+                            onChange={(e) => { 
+                                const newQuantity = [...order.buyQuantity];
+                                newQuantity[0] = e.target.value;
+                                setOrder({ ...order, buyQuantity: newQuantity });
+                            }}
+                        />
+                    </div>
                 
-                {/* Product 2 */}
-                <div style={styles.productItem}>
-                    <img src="https://via.placeholder.com/150" alt="Product 2" style={styles.productImage} />
-                    <h2>Product 2</h2>
-                    <label>Quantity</label>
-                    <input
-                        type="number"
-                        required
-                        onChange={(e) => { 
-                            const newQuantity = [...order.buyQuantity];
-                            newQuantity[1] = e.target.value;
-                            setOrder({ ...order, buyQuantity: newQuantity });
-                        }}
-                    />
+                    {/* Product 2 */}
+                    <div style={styles.productItem}>
+                        <img src="https://via.placeholder.com/150" alt="Product 2" style={styles.productImage} />
+                        <h2>Product 2</h2>
+                        <label>Quantity</label>
+                        <input
+                            type="number"
+                            required
+                            onChange={(e) => { 
+                                const newQuantity = [...order.buyQuantity];
+                                newQuantity[1] = e.target.value;
+                                setOrder({ ...order, buyQuantity: newQuantity });
+                            }}
+                        />
+                    </div>
+
+                    {/* Product 3 */}
+                    <div style={styles.productItem}>
+                        <img src="https://via.placeholder.com/150" alt="Product 3" style={styles.productImage} />
+                        <h2>Product 3</h2>
+                        <label>Quantity</label>
+                        <input
+                            type="number"
+                            required
+                            onChange={(e) => { 
+                                const newQuantity = [...order.buyQuantity];
+                                newQuantity[2] = e.target.value;
+                                setOrder({ ...order, buyQuantity: newQuantity });
+                            }}
+                        />
+                    </div>
                 </div>
 
-                {/* Product 3 */}
-                <div style={styles.productItem}>
-                    <img src="https://via.placeholder.com/150" alt="Product 3" style={styles.productImage} />
-                    <h2>Product 3</h2>
-                    <label>Quantity</label>
-                    <input
-                        type="number"
-                        required
-                        onChange={(e) => { 
-                            const newQuantity = [...order.buyQuantity];
-                            newQuantity[2] = e.target.value;
-                            setOrder({ ...order, buyQuantity: newQuantity });
-                        }}
-                    />
+                {/* Centered container for Products 4 and 5 */}
+                <div style={styles.centeredProductContainer}>
+                    {/* Product 4 */}
+                    <div style={styles.productItem}>
+                        <img src="https://via.placeholder.com/150" alt="Product 4" style={styles.productImage} />
+                        <h2>Product 4</h2>
+                        <label>Quantity</label>
+                        <input
+                            type="number"
+                            required
+                            onChange={(e) => { 
+                                const newQuantity = [...order.buyQuantity];
+                                newQuantity[3] = e.target.value;
+                                setOrder({ ...order, buyQuantity: newQuantity });
+                            }}
+                        />
+                    </div>
+
+                    {/* Product 5 */}
+                    <div style={styles.productItem}>
+                        <img src="https://via.placeholder.com/150" alt="Product 5" style={styles.productImage} />
+                        <h2>Product 5</h2>
+                        <label>Quantity</label>
+                        <input
+                            type="number"
+                            required
+                            onChange={(e) => { 
+                                const newQuantity = [...order.buyQuantity];
+                                newQuantity[4] = e.target.value;
+                                setOrder({ ...order, buyQuantity: newQuantity });
+                            }}
+                        />
+                    </div>
                 </div>
-            </div>
 
-            {/* Centered container for Products 4 and 5 */}
-            <div style={styles.centeredProductContainer}>
-                {/* Product 4 */}
-                <div style={styles.productItem}>
-                    <img src="https://via.placeholder.com/150" alt="Product 4" style={styles.productImage} />
-                    <h2>Product 4</h2>
-                    <label>Quantity</label>
-                    <input
-                        type="number"
-                        required
-                        onChange={(e) => { 
-                            const newQuantity = [...order.buyQuantity];
-                            newQuantity[3] = e.target.value;
-                            setOrder({ ...order, buyQuantity: newQuantity });
-                        }}
-                    />
-                </div>
+                <br />
 
-                {/* Product 5 */}
-                <div style={styles.productItem}>
-                    <img src="https://via.placeholder.com/150" alt="Product 5" style={styles.productImage} />
-                    <h2>Product 5</h2>
-                    <label>Quantity</label>
-                    <input
-                        type="number"
-                        required
-                        onChange={(e) => { 
-                            const newQuantity = [...order.buyQuantity];
-                            newQuantity[4] = e.target.value;
-                            setOrder({ ...order, buyQuantity: newQuantity });
-                        }}
-                    />
-                </div>
-            </div>
-
-            <br />
-
-            <button className="button">Pay</button>
+                <button className="button">Pay</button>
+            </form>
         </div>
     );
 };
