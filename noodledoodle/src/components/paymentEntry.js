@@ -16,7 +16,13 @@ const PaymentEntry = () => {
 		// navigate to shipping entry page once the payment information is submitted 
 	    navigate('/purchase/shippingEntry', { state: { order, setOrder } });
     } 
-	//console.log('order: ', order);
+
+
+
+	
+	console.log('order: ', order);
+
+
 
 return ( 
     <div>
@@ -24,6 +30,8 @@ return (
 		<label>Credit Card Number</label>
 		    <input
 				type='text'
+				// correct input name for state update
+				name='credit_card_number' 
 				required
 				onChange={(e) =>
 					{order.credit_card_numer = e.target.value;}
