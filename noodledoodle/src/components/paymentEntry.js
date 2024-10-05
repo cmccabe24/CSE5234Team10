@@ -1,5 +1,5 @@
-//test
 import React from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const PaymentEntry = () => {
@@ -9,7 +9,6 @@ const PaymentEntry = () => {
 
 	// making sure that state is defined 
 	const { order, setOrder } = location.state || { order: {}, setOrder: () => {} }; 
-
 
     const handleSubmit = (e) => {
 		e.preventDefault();
@@ -25,10 +24,11 @@ const PaymentEntry = () => {
 		}));
 	};
 
-	console.log('order: ', order);
+	//console.log('order: ', orderState);
 
 	return ( 
     	<div>
+			<h2> Payment Information </h2> 
 			<form onSubmit ={handleSubmit}>
 				<label>Credit Card Number</label>
 		    	<input
@@ -44,7 +44,7 @@ const PaymentEntry = () => {
 				<input
 					type='text'
 					// matching key in the order object
-					name='expiration_date'
+					name='expir_date'
 					required
 					onChange={handleInputChange}
 				/>
@@ -70,7 +70,7 @@ const PaymentEntry = () => {
 				/>
 				<br/>
 			
-				<button className='button'>Shipping Information</button>
+				<button className='button'>Continue to Shipping Information</button>
 			</form>
 		</div>
     );		
