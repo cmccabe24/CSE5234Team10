@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
-const viewConfirmation = () => {
+const ViewConfirmation = () => {
 	let location = useLocation();
 	const [order, setOrder ] = location.state;
 
@@ -27,4 +27,4 @@ const viewConfirmation = () => {
 
 };
 
-export default viewConfirmation;
+export default ViewConfirmation;

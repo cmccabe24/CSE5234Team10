@@ -1,16 +1,22 @@
 //test
 import React from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const paymentEntry = () => {
-	let location = useLocation();
-	const [order, setOrder ] = location.state;
+const PaymentEntry = () => {
+	// changed to const from let because we won't be reassigning location 
+	const location = useLocation();
     const navigate = useNavigate();
 
+	// making sure that state is defined 
+	const { order, setOrder } = location.state || { order: {}, setOrder: () => {} }; 
+
+
     const handleSubmit = (e) => {
-	    navigate('/purchase/paymentEntry', {order: order, setOrder: setOrder});
+		e.preventDefault();
+		// navigate to shipping entry page once the payment information is submitted 
+	    navigate('/purchase/shippingEntry', { state: { order, setOrder } });
     } 
-	console.log('order: ', order);
+	//console.log('order: ', order);
 
 return ( 
     <div>
@@ -57,4 +63,4 @@ return (
     );		
 };
 
-export default paymentEntry;
+export default PaymentEntry;
