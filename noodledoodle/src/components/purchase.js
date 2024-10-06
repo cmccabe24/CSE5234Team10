@@ -54,9 +54,10 @@ const Purchase = () => {
     
     return (
         <div style={{ backgroundColor: '#f7f0e6', minHeight: '100vh', padding: '20px' }}>
-              <h2 style={styles.title}>{title}</h2>
+            <img src="noodlelogo.png" alt='banner' style={styles.logoImage}/>
+                
              <img src="noodledoodlebanner.png" alt='banner' style={styles.bannerImage}/>
-    
+             <h2 style={styles.title}>{title}</h2>
             
 
             {/* Flexbox container for products */}
@@ -140,6 +141,10 @@ const styles = {
     bannerImage: {
         width: '1410px', 
         height: '350px'
+    },
+    logoImage: {
+        width: '700px', 
+        height: '300px'
     },
     cartContainer: {
         marginTop: '50px',
