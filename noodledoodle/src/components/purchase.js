@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Purchase = () => {
@@ -8,25 +7,45 @@ const Purchase = () => {
     const [order, setOrder] = useState({
         buyQuantity: [0, 0, 0, 0, 0],
         products: [
-            {name: 'Product A', price: 1},
-            {name: 'Product B', price: 1},
-            {name: 'Product C', price: 1},
-            {name: 'Product D', price: 1},
-            {name: 'Product E', price: 1},
+            {name: 'Art Print', price: 12},
+            {name: 'Candle', price: 20},
+            {name: 'Sticker', price: 5},
+            {name: 'Mug', price: 15},
+            {name: 'Tshirt', price: 25},
         ],
-        credit_card_number: '',
-        expiration_date: '',
-        cvvCode: '',
-        card_holder_name: '',
-        address_1: '',
-        address_2: '',
-        city: '',
-        state: '',
-        zip: ''
+        cart: []
     });
-    
+
     const navigate = useNavigate();
     
+    const handleAddToCart = (index) => {
+        const product = order.products[index];
+        const quantity = order.buyQuantity[index];
+        
+        if (quantity > 0) {
+            const newCart = [...order.cart];
+            const existingItemIndex = newCart.findIndex(item => item.name === product.name);
+
+            if (existingItemIndex !== -1) {
+                newCart[existingItemIndex].quantity = parseInt(quantity, 10);
+            } else {
+                newCart.push({ ...product, quantity: parseInt(quantity, 10) });
+            }
+            setOrder({ ...order, cart: newCart });
+        }
+    };
+
+    const handleRemoveFromCart = (index) => {
+        const newCart = order.cart.filter((_, i) => i !== index);
+        setOrder({ ...order, cart: newCart });
+    };
+
+    const handleQuantityChange = (index, newQuantity) => {
+        const newCart = [...order.cart];
+        newCart[index].quantity = parseInt(newQuantity, 10);
+        setOrder({ ...order, cart: newCart });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         navigate('/purchase/paymentEntry', { state: {order: order}});
@@ -35,103 +54,57 @@ const Purchase = () => {
     
     return (
         <div style={{ backgroundColor: '#f7f0e6', minHeight: '100vh', padding: '20px' }}>
-            <form onSubmit ={handleSubmit}>
-                <h1 style={styles.title}>{title}</h1>
+            <h1 style={styles.title}>{title}</h1>
 
-                {/* Flexbox container for products */}
+            {/* Flexbox container for products */}
+            <form onSubmit={handleSubmit}>
                 <div style={styles.productContainer}>
-                    {/* Product 1 */}
-                    <div style={styles.productItem}>
-                        <img src="/artPrint.jpg" alt="Product 1" style={styles.productImage} />
-                        <h2>{order.products[0].name}</h2>
-                        <h3>${order.products[0].price}</h3>
-                        <label>Quantity</label>
-                        <input
-                            type="number"
-                            required
-                            onChange={(e) => { 
-                                const newQuantity = [...order.buyQuantity];
-                                newQuantity[0] = e.target.value;
-                                setOrder({ ...order, buyQuantity: newQuantity });
-                            }}
-                        />
-                    </div>
-                
-                    {/* Product 2 */}
-                    <div style={styles.productItem}>
-                        <img src="/candle.jpg" alt="Product 2" style={styles.productImage} />
-                        <h2>{order.products[1].name}</h2>
-                        <h3>${order.products[1].price}</h3>
-                        <label>Quantity</label>
-                        <input
-                            type="number"
-                            required
-                            onChange={(e) => { 
-                                const newQuantity = [...order.buyQuantity];
-                                newQuantity[1] = e.target.value;
-                                setOrder({ ...order, buyQuantity: newQuantity });
-                            }}
-                        />
-                    </div>
-
-                    {/* Product 3 */}
-                    <div style={styles.productItem}>
-                        <img src="/sticker.jpg" alt="Product 3" style={styles.productImage} />
-                        <h2>{order.products[2].name}</h2>
-                        <h3>${order.products[2].price}</h3>
-                        <label>Quantity</label>
-                        <input
-                            type="number"
-                            required
-                            onChange={(e) => { 
-                                const newQuantity = [...order.buyQuantity];
-                                newQuantity[2] = e.target.value;
-                                setOrder({ ...order, buyQuantity: newQuantity });
-                            }}
-                        />
-                    </div>
+                    {order.products.map((product, index) => (
+                        <div key={index} style={styles.productItem}>
+                            <img src={`/${product.name.toLowerCase().replace(" ", "")}.png`} alt={product.name} style={styles.productImage} />
+                            <h2>{product.name}</h2>
+                            <h3>${product.price}</h3>
+                            <label>Quantity</label>
+                            <input
+                                type="number"
+                                min="0"
+                                value={order.buyQuantity[index]}
+                                onChange={(e) => { 
+                                    const newQuantity = [...order.buyQuantity];
+                                    newQuantity[index] = e.target.value;
+                                    setOrder({ ...order, buyQuantity: newQuantity });
+                                }}
+                            />
+                            <button type="button" onClick={() => handleAddToCart(index)}>Add to Cart</button>
+                        </div>
+                    ))}
                 </div>
 
-                {/* Centered container for Products 4 and 5 */}
-                <div style={styles.centeredProductContainer}>
-                    {/* Product 4 */}
-                    <div style={styles.productItem}>
-                        <img src="/mug.jpg" alt="Product 4" style={styles.productImage} />
-                        <h2>{order.products[3].name}</h2>
-                        <h3>${order.products[3].price}</h3>
-                        <label>Quantity</label>
-                        <input
-                            type="number"
-                            required
-                            onChange={(e) => { 
-                                const newQuantity = [...order.buyQuantity];
-                                newQuantity[3] = e.target.value;
-                                setOrder({ ...order, buyQuantity: newQuantity });
-                            }}
-                        />
-                    </div>
-
-                    {/* Product 5 */}
-                    <div style={styles.productItem}>
-                        <img src="https://via.placeholder.com/150" alt="Product 5" style={styles.productImage} />
-                        <h2>{order.products[4].name}</h2>
-                        <h3>${order.products[4].price}</h3>
-                        <label>Quantity</label>
-                        <input
-                            type="number"
-                            required
-                            onChange={(e) => { 
-                                const newQuantity = [...order.buyQuantity];
-                                newQuantity[4] = e.target.value;
-                                setOrder({ ...order, buyQuantity: newQuantity });
-                            }}
-                        />
-                    </div>
+                {/* Cart Section */}
+                <div style={styles.cartContainer}>
+                    <h2>Shopping Cart</h2>
+                    {order.cart.length === 0 ? (
+                        <p>Your cart is empty</p>
+                    ) : (
+                        <ul style={styles.cartList}>
+                            {order.cart.map((item, index) => (
+                                <li key={index} style={styles.cartItem}>
+                                    <span>{item.name} - ${item.price} x {item.quantity}</span>
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        value={item.quantity}
+                                        onChange={(e) => handleQuantityChange(index, e.target.value)}
+                                    />
+                                    <button type="button" onClick={() => handleRemoveFromCart(index)}>Remove</button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
 
                 <br />
-
-                <button className="button">Pay</button>
+                <button type="submit" className="button">Proceed to Checkout</button>
             </form>
         </div>
     );
@@ -140,36 +113,41 @@ const Purchase = () => {
 // Inline styles for Flexbox layout
 const styles = {
     productContainer: {
-        display: 'flex',               // Flexbox layout
-        justifyContent: 'center', // Space items evenly in the row
-        alignItems: 'center',          // Align items vertically in the center
-        //flexWrap: 'wrap',              // Allow wrapping to the next line
-        margin: '50px 0' ,           // Add vertical spacing between rows
-        gap: '250px'                    // Space between products
-    },
-    centeredProductContainer: {
-        display: 'flex',               // Flexbox layout
-        justifyContent: 'center',      // Center the products
-        alignItems: 'center',          // Align items vertically in the center
-        margin: '50px 0',              // Add vertical spacing
-        gap: '250px'                    // Space between products
+        display: 'flex',               
+        justifyContent: 'center', 
+        alignItems: 'center',         
+        margin: '0px 0',           
+        gap: '100px'                   
     },
     title: {
-        fontFamily: "'Protest Strike', sans-serif", // Apply the font to the title
+        fontFamily: "'Protest Strike', sans-serif", 
         marginBottom: '50px',
         fontSize: '50px'
-
     },
     productItem: {
-        textAlign: 'center',           // Center-align the text
-        width: '150px'                 // Set a fixed width for each product item
+        textAlign: 'center',           
+        width: '150px'                 
     },
     productImage: {
-        width: '250px', // Set the desired width of the image
-        height: '300px', // Set the desired height of the image
-        //objectFit: 'cover' // Maintain aspect ratio while covering the area
-        //width: '100%',                 // Make the image take up the full width of its container
-       //height: 'auto'                 // Maintain the aspect ratio of the image
+        width: '200px', 
+        height: '300px'
+    },
+    cartContainer: {
+        marginTop: '50px',
+        textAlign: 'left',
+        padding: '20px',
+        border: '1px solid #ccc',
+        borderRadius: '8px',
+    },
+    cartList: {
+        listStyleType: 'none',
+        padding: 0
+    },
+    cartItem: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '10px'
     }
 };
 
