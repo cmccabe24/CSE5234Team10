@@ -54,9 +54,10 @@ const Purchase = () => {
     
     return (
         <div style={{ backgroundColor: '#f7f0e6', minHeight: '100vh', padding: '20px' }}>
-             <img src="tshirt.png" alt='banner' />
-
-            <h1 style={styles.title}>{title}</h1>
+              <h2 style={styles.title}>{title}</h2>
+             <img src="noodledoodlebanner.png" alt='banner' style={styles.bannerImage}/>
+    
+            
 
             {/* Flexbox container for products */}
             <form onSubmit={handleSubmit}>
@@ -119,7 +120,9 @@ const styles = {
         justifyContent: 'center', 
         alignItems: 'center',         
         margin: '0px 0',           
-        gap: '100px'                   
+        gap: '100px'  ,
+        marginTop: '30px',  
+        backgroundColor:'#f7f0e6'      
     },
     title: {
         fontFamily: "'Protest Strike', sans-serif", 
@@ -134,12 +137,17 @@ const styles = {
         width: '200px', 
         height: '300px'
     },
+    bannerImage: {
+        width: '1410px', 
+        height: '350px'
+    },
     cartContainer: {
         marginTop: '50px',
         textAlign: 'left',
         padding: '20px',
         border: '1px solid #ccc',
         borderRadius: '8px',
+        backgroundColor: '#F6CDD5'
     },
     cartList: {
         listStyleType: 'none',
