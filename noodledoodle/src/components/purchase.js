@@ -12,7 +12,6 @@ const Purchase = () => {
             {name: 'Sticker', price: 5},
             {name: 'Mug', price: 15},
             {name: 'Tshirt', price: 25},
-            
         ],
         credit_card_number: '',
         expiration_date: '',
@@ -22,7 +21,7 @@ const Purchase = () => {
         address_2: '',
         city: '',
         state: '',
-        zip: ''
+        zip: '',
         cart: []
     });
 
@@ -47,13 +46,23 @@ const Purchase = () => {
 
     const handleRemoveFromCart = (index) => {
         const newCart = order.cart.filter((_, i) => i !== index);
-        setOrder({ ...order, cart: newCart });
+
+        const productIndex = order.products.findIndex(product => product.name === order.cart[index].name);
+        const updatedBuyQuantity = [...order.buyQuantity];
+        updatedBuyQuantity[productIndex] = 0;
+
+        setOrder({ ...order, cart: newCart, buyQuantity: updatedBuyQuantity});
     };
 
     const handleQuantityChange = (index, newQuantity) => {
         const newCart = [...order.cart];
         newCart[index].quantity = parseInt(newQuantity, 10);
-        setOrder({ ...order, cart: newCart });
+
+        const productIndex = order.products.findIndex(product => product.name === order.cart[index].name);
+        const updatedBuyQuantity = [...order.buyQuantity];
+        updatedBuyQuantity[productIndex] = parseInt(newQuantity, 10);
+
+        setOrder({ ...order, cart: newCart, buyQuantity: updatedBuyQuantity });
     };
 
     const handleSubmit = (e) => {
@@ -118,7 +127,7 @@ const Purchase = () => {
                 </div>
 
                 <br />
-                <button type="submit" className="button">Proceed to Checkout</button>
+                <button type="submit" className="button" disabled={order.cart.every(quantity => quantity === 0)} > Proceed to Checkout </button>
             </form>
         </div>
     );
