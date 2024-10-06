@@ -42,7 +42,7 @@ const Purchase = () => {
                 <div style={styles.productContainer}>
                     {/* Product 1 */}
                     <div style={styles.productItem}>
-                        <img src="https://via.placeholder.com/150" alt="Product 1" style={styles.productImage} />
+                        <img src="/artPrint.jpg" alt="Product 1" style={styles.productImage} />
                         <h2>{order.products[0].name}</h2>
                         <h3>${order.products[0].price}</h3>
                         <label>Quantity</label>
@@ -59,7 +59,7 @@ const Purchase = () => {
                 
                     {/* Product 2 */}
                     <div style={styles.productItem}>
-                        <img src="https://via.placeholder.com/150" alt="Product 2" style={styles.productImage} />
+                        <img src="/candle.jpg" alt="Product 2" style={styles.productImage} />
                         <h2>{order.products[1].name}</h2>
                         <h3>${order.products[1].price}</h3>
                         <label>Quantity</label>
@@ -76,7 +76,7 @@ const Purchase = () => {
 
                     {/* Product 3 */}
                     <div style={styles.productItem}>
-                        <img src="https://via.placeholder.com/150" alt="Product 3" style={styles.productImage} />
+                        <img src="/sticker.jpg" alt="Product 3" style={styles.productImage} />
                         <h2>{order.products[2].name}</h2>
                         <h3>${order.products[2].price}</h3>
                         <label>Quantity</label>
@@ -96,7 +96,7 @@ const Purchase = () => {
                 <div style={styles.centeredProductContainer}>
                     {/* Product 4 */}
                     <div style={styles.productItem}>
-                        <img src="https://via.placeholder.com/150" alt="Product 4" style={styles.productImage} />
+                        <img src="/mug.jpg" alt="Product 4" style={styles.productImage} />
                         <h2>{order.products[3].name}</h2>
                         <h3>${order.products[3].price}</h3>
                         <label>Quantity</label>
