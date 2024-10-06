@@ -12,7 +12,17 @@ const Purchase = () => {
             {name: 'Sticker', price: 5},
             {name: 'Mug', price: 15},
             {name: 'Tshirt', price: 25},
+            
         ],
+        credit_card_number: '',
+        expiration_date: '',
+        cvvCode: '',
+        card_holder_name: '',
+        address_1: '',
+        address_2: '',
+        city: '',
+        state: '',
+        zip: ''
         cart: []
     });
 
