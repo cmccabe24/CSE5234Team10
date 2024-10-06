@@ -54,6 +54,8 @@ const Purchase = () => {
     
     return (
         <div style={{ backgroundColor: '#f7f0e6', minHeight: '100vh', padding: '20px' }}>
+             <img src="tshirt.png" alt='banner' />
+
             <h1 style={styles.title}>{title}</h1>
 
             {/* Flexbox container for products */}
