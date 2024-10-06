@@ -1,12 +1,10 @@
 import React from 'react';
-import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 
 const ViewConfirmation = () => {
-	let location = useLocation();
-	const [order, setOrder ] = location.state;
+	const location = useLocation();
+	const { order } = location.state;
 
-	console.log('order: ', order);
 	return (
 		<div>
 			<label>Thank You For Shopping With Noodle Doodle!</label>
@@ -16,11 +14,11 @@ const ViewConfirmation = () => {
 			<plaintext>Order Summary: </plaintext>
 			<br/>
 			<h1>
-                Product 1 {order.buyQuantity[0]}
-                Product 2 {order.buyQuantity[1]} 
-                Product 3 {order.buyQuantity[2]} 
-                Product 4 {order.buyQuantity[3]} 
-                Product 5 {order.buyQuantity[4]} 
+                Product 1 - {order.buyQuantity[0]} <br></br>
+                Product 2 - {order.buyQuantity[1]} <br></br>
+                Product 3 - {order.buyQuantity[2]} <br></br>
+                Product 4 - {order.buyQuantity[3]} <br></br>
+                Product 5 - {order.buyQuantity[4]} 
             </h1>
 		</div>
 	);
