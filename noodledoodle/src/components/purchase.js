@@ -7,6 +7,13 @@ const Purchase = () => {
     
     const [order, setOrder] = useState({
         buyQuantity: [0, 0, 0, 0, 0],
+        products: [
+            {name: 'Product A', price: 1},
+            {name: 'Product B', price: 1},
+            {name: 'Product C', price: 1},
+            {name: 'Product D', price: 1},
+            {name: 'Product E', price: 1},
+        ],
         credit_card_number: '',
         expiration_date: '',
         cvvCode: '',
@@ -36,7 +43,8 @@ const Purchase = () => {
                     {/* Product 1 */}
                     <div style={styles.productItem}>
                         <img src="https://via.placeholder.com/150" alt="Product 1" style={styles.productImage} />
-                        <h2>Product 1</h2>
+                        <h2>{order.products[0].name}</h2>
+                        <h3>${order.products[0].price}</h3>
                         <label>Quantity</label>
                         <input
                             type="number"
@@ -52,7 +60,8 @@ const Purchase = () => {
                     {/* Product 2 */}
                     <div style={styles.productItem}>
                         <img src="https://via.placeholder.com/150" alt="Product 2" style={styles.productImage} />
-                        <h2>Product 2</h2>
+                        <h2>{order.products[1].name}</h2>
+                        <h3>${order.products[1].price}</h3>
                         <label>Quantity</label>
                         <input
                             type="number"
@@ -68,7 +77,8 @@ const Purchase = () => {
                     {/* Product 3 */}
                     <div style={styles.productItem}>
                         <img src="https://via.placeholder.com/150" alt="Product 3" style={styles.productImage} />
-                        <h2>Product 3</h2>
+                        <h2>{order.products[2].name}</h2>
+                        <h3>${order.products[2].price}</h3>
                         <label>Quantity</label>
                         <input
                             type="number"
@@ -87,7 +97,8 @@ const Purchase = () => {
                     {/* Product 4 */}
                     <div style={styles.productItem}>
                         <img src="https://via.placeholder.com/150" alt="Product 4" style={styles.productImage} />
-                        <h2>Product 4</h2>
+                        <h2>{order.products[3].name}</h2>
+                        <h3>${order.products[3].price}</h3>
                         <label>Quantity</label>
                         <input
                             type="number"
@@ -103,7 +114,8 @@ const Purchase = () => {
                     {/* Product 5 */}
                     <div style={styles.productItem}>
                         <img src="https://via.placeholder.com/150" alt="Product 5" style={styles.productImage} />
-                        <h2>Product 5</h2>
+                        <h2>{order.products[4].name}</h2>
+                        <h3>${order.products[4].price}</h3>
                         <label>Quantity</label>
                         <input
                             type="number"
