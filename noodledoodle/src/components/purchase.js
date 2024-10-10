@@ -71,6 +71,14 @@ const Purchase = () => {
         navigate('/purchase/paymentEntry', { state: {order: order}});
         console.log('order: ', order);
     };
+
+    const handleAboutUs = (e) => {
+        navigate('/purchase/aboutUs');
+    }
+
+    const handleContactUs = (e) => {
+        navigate('/purchase/contactUs');
+    }
     
     return (
         <div style={{ backgroundColor: '#f7f0e6', minHeight: '100vh', padding: '20px' }}>
@@ -82,7 +90,12 @@ const Purchase = () => {
                 
              <img src="noodledoodlebanner.png" alt='banner' style={styles.bannerImage}/>
              <h2 style={styles.title}>{title}</h2>
-            
+
+            {/* Navigation Buttons Row */}
+            <div style={styles.buttonRow}>
+                <button onClick={handleAboutUs}>About Us</button>
+                <button onClick={handleContactUs}>Contact Us</button>
+            </div>
 
             {/* Flexbox container for products */}
             <form onSubmit={handleSubmit}>
@@ -168,6 +181,12 @@ const styles = {
         fontFamily: "'Protest Strike', sans-serif", 
         marginBottom: '50px',
         fontSize: '50px'
+    },
+    buttonRow: {
+        display: 'flex',
+        justifyContent: 'center', 
+        gap: '20px', 
+        marginBottom: '20px',
     },
     productItem: {
         textAlign: 'center',           
