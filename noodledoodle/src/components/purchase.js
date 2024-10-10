@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Purchase = () => {
     let title = "Purchase Page";
@@ -73,6 +74,10 @@ const Purchase = () => {
     
     return (
         <div style={{ backgroundColor: '#f7f0e6', minHeight: '100vh', padding: '20px' }}>
+            <nav style={styles.navBar}>
+                <Link to="/purchase/aboutUs" style={styles.navLink}>About Us</Link>
+                <Link to="/purchase/contactUs" style={styles.navLink}>Contact Us</Link>
+            </nav>
             <img src="noodlelogo.png" alt='banner' style={styles.logoImage}/>
                 
              <img src="noodledoodlebanner.png" alt='banner' style={styles.bannerImage}/>
@@ -135,6 +140,21 @@ const Purchase = () => {
 
 // Inline styles for Flexbox layout
 const styles = {
+    navBar: {
+        display: 'flex',
+        justifyContent: 'center', // Centering the nav links
+        marginBottom: '20px',
+        backgroundColor: '#ddd',
+        padding: '10px'
+    },
+    navLink: {
+        textDecoration: 'underline',
+        color: '#333',
+        fontSize: '18px',
+        fontWeight: 'bold',
+        margin: '0 15px', // Add space between links
+        cursor: 'pointer'
+    },
     productContainer: {
         display: 'flex',               
         justifyContent: 'center', 

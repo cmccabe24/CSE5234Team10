@@ -7,6 +7,9 @@ import PaymentEntry from "./components/paymentEntry"
 import ShippingEntry from "./components/shippingEntry"
 import ViewOrder from "./components/viewOrder"
 import ViewConfirmation from "./components/viewConfirmation"
+import AboutUs from "./components/aboutUs.js"
+import ContactUs from "./components/contactUs.js"
+
 
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
       <Route path='/purchase/shippingEntry' element={<ShippingEntry/>} />
       <Route path='/purchase/viewOrder' element={<ViewOrder/>} />
       <Route path='/purchase/viewConfirmation' element={<ViewConfirmation/>} />
+      <Route path='/purchase/aboutUs' element={<AboutUs/>} />
+      <Route path='/purchase/contactUs' element={<ContactUs/>} />
       </Routes>
       </div>
     </Router>
