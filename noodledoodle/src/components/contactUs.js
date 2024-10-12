@@ -8,7 +8,6 @@ const ContactUs = () => {
             <h1>Contact Us</h1>
             <p>Email: support@example.com</p>
             <p>Phone: (123) 456-7890</p>
-            <Link to="/home/purchase">Back</Link>
         </div>
     );
 };

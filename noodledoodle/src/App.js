@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate, Link} from "react-router-dom";
 import Home from "./components/home";
 import Purchase from "./components/purchase";
 import PaymentEntry from "./components/paymentEntry";
@@ -10,6 +10,7 @@ import ViewOrder from "./components/viewOrder";
 import ViewConfirmation from "./components/viewConfirmation";
 import AboutUs from "./components/aboutUs";
 import ContactUs from "./components/contactUs";
+import './static/purchase.css';
 
 
 function App() {
@@ -83,6 +84,9 @@ const handleInputChange = (e) => {
   return (
     <div className="App">
     <Router>
+      <Link to="/home">
+        <img src="noodlelogo.png" alt='logo' className="logoImage" />
+      </Link>
       <div className="content">
       <Routes>
       <Route path='/home' element={<Home/>} />
