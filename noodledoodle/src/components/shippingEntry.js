@@ -2,27 +2,21 @@ import React from 'react';
 import {useState} from 'react';
 import {useNavigate, useLocation} from 'react-router-dom';
 
-const ShippingEntry = () => {
+const ShippingEntry = ({handleInputChange}) => {
 
     // changed to const from let because we won't be reassigning location 
 	const location = useLocation();
     const navigate = useNavigate();
 
-    const  prevOrder = location.state.order;
-	const [order, setOrder] = useState(prevOrder); 
+    //const  prevOrder = location.state.order;
+	//const [order, setOrder] = useState(prevOrder); 
 
 
     const handleSubmit = (e) => {
-        navigate('/home/viewOrder', { state: { order: order } });
+        //navigate('/home/viewOrder', { state: { order: order } });
+        navigate('/home/viewOrder');
     }
 
-    const handleInputChange = (e) => {
-		const { name, value } = e.target;
-		setOrder((order) => ({
-			...order,
-			[name]: value,
-		}));
-	};
 
     return (
         <div>

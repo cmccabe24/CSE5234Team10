@@ -3,15 +3,16 @@ import React from 'react';
 import {useState} from 'react';
 import {useNavigate, useLocation} from 'react-router-dom';
 
-const ViewOrder = () => {
+const ViewOrder = ({order, setOrder}) => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const{ order } = location.state;
+    //const{ order } = location.state;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/home/viewConfirmation', { state: { order: order } });
+        //navigate('/home/viewConfirmation', { state: { order: order } });
+        navigate('/home/viewConfirmation');
     };
 
     let totalCost = 0;

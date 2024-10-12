@@ -1,9 +1,9 @@
 import React from 'react';
 import {useLocation} from 'react-router-dom';
 
-const ViewConfirmation = () => {
+const ViewConfirmation = ({order}) => {
 	const location = useLocation();
-	const { order } = location.state;
+	//const { order } = location.state;
 
 	return (
 		<div>
