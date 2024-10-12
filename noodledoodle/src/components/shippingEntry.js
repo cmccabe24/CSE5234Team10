@@ -1,11 +1,9 @@
 import React from 'react';
-import {useState} from 'react';
-import {useNavigate, useLocation} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import '../static/shippingEntry.css'
 const ShippingEntry = ({handleInputChange}) => {
 
     // changed to const from let because we won't be reassigning location 
-	const location = useLocation();
     const navigate = useNavigate();
 
     //const  prevOrder = location.state.order;

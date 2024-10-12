@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {Link} from "react-router-dom";
 import '../static/purchase.css';
@@ -8,8 +7,6 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
     
     const navigate = useNavigate();
     
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         //navigate('/home/paymentEntry', { state: {order: order}});

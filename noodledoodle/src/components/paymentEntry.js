@@ -1,11 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import '../static/paymentEntry.css';
 
 const PaymentEntry = ({order, setOrder, handleInputChange}) => {
-	// changed to const from let because we won't be reassigning location 
-	const location = useLocation();
 	//const prevOrder = location.state.order;
 	//const [order, setOrder] = useState(prevOrder);
     const navigate = useNavigate();

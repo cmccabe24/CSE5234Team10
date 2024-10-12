@@ -1,0 +1,64 @@
+/* ViewOrder.css */
+
+.viewOrder {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.table th {
+    background-color: #ff6347;
+    color: white;
+    font-weight: bold;
+}
+
+.table td {
+    background-color: #fff;
+    color: #555;
+}
+
+.total-cost {
+    font-weight: bold;
+    font-size: 22px;
+    color: #ff6347;
+    text-align: right;
+}
+
+.button {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e55340;
+}

@@ -1,77 +1,113 @@
-/* aboutUs.css */
-.container {
+/* Overall container styling */
+.aboutUs {
     padding: 20px;
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    max-width: 1200px;
-    margin: auto;
 }
 
+/* Navigation bar */
+.navBar {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #ff6347;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Header styling */
 .header {
+    text-align: center;
     color: #ff6347;
     font-size: 36px;
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-.section-header {
-    font-size: 28px;
-    color: #333;
-    margin-top: 30px;
-}
-
-p {
-    margin-bottom: 15px;
-}
-
-ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
-.contact-info {
-    margin-bottom: 20px;
+/* Company section styling */
+.company-section {
     background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
 }
 
-.contact-info ul {
-    padding: 0;
-    list-style-type: none;
-}
-
-.contact-info ul li {
-    margin-bottom: 10px;
-}
-
-.faq {
-    margin-top: 40px;
-}
-
-.faq ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.faq ul li {
-    margin-bottom: 15px;
-}
-
-.faq strong {
+.company-section h2 {
+    font-size: 24px;
+    margin-top: 10px;
     color: #ff6347;
 }
 
-.footer {
-    margin-top: 30px;
+.company-section p {
+    margin-bottom: 15px;
+}
+
+/* Executive section styling */
+.executives-section {
     text-align: center;
-    font-size: 14px;
-    color: #777;
+    margin-bottom: 40px;
+}
+
+.executives {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.executive-card {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px;
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.executive-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.executive-card h4 {
+    font-size: 18px;
+    color: #ff6347;
+    margin-bottom: 10px;
+}
+
+.executive-card p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Executive image styling */
+.executive-image {
+    width: 250px;  /* Set desired width */
+    height: 300px; /* Set desired height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin-bottom: 10px; /* Space below the image */
+}
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .executives {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .executive-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .company-section {
+        padding: 15px;
+    }
 }
