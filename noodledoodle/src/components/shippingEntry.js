@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import {useNavigate, useLocation} from 'react-router-dom';
-
+import '../static/shippingEntry.css'
 const ShippingEntry = ({handleInputChange}) => {
 
     // changed to const from let because we won't be reassigning location 
@@ -19,10 +19,11 @@ const ShippingEntry = ({handleInputChange}) => {
 
 
     return (
-        <div>
+        <div class= "shippingEntryCss">
             <h2> Shipping Information </h2>
             <form onSubmit={handleSubmit}>
                 <label>Address 1</label>
+                <br />
                 <input
                     type='text'
                     name='address_1'
@@ -32,6 +33,8 @@ const ShippingEntry = ({handleInputChange}) => {
                 <br/>
                 
                 <label>Address 2</label>
+
+                <br />
                 <input
                     type='text'
                     name='address_2'
@@ -40,6 +43,7 @@ const ShippingEntry = ({handleInputChange}) => {
                 <br/>
             
                 <label>City</label>
+                <br />
                 <input
                     type='text'
                     name='city'
@@ -49,6 +53,7 @@ const ShippingEntry = ({handleInputChange}) => {
                 <br/>
             
                 <label>State</label>
+                <br />
                 <input
                     type='text'
                     name='state'
@@ -58,6 +63,7 @@ const ShippingEntry = ({handleInputChange}) => {
                 <br/>
             
                 <label>Zip Code</label>
+                <br />
                 <input
                     type='number'
                     name='zip'

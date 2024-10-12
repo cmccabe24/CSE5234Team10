@@ -1,0 +1,25 @@
+﻿/*paymentEntry.css*/
+
+.paymentEntryCss {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+.paymentEntryCss label {
+    font-size: 20px;
+    align-items: center;
+
+}
+.paymentEntryCss form {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: 0 auto;
+    text-decoration: underline;
+
+}
+.paymentEntryCss input {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.paymentEntryCss h2 {
+    color: #ff6347;
+}

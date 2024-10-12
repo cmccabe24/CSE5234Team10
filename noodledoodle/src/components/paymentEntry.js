@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import '../static/paymentEntry.css';
 
 const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 	// changed to const from let because we won't be reassigning location 
@@ -17,10 +18,11 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 
 	
 	return ( 
-    	<div>
+		<div class="paymentEntryCss">
 			<h2> Payment Information </h2> 
-			<form onSubmit ={handleSubmit}>
+			<form onSubmit ={handleSubmit} >
 				<label>Credit Card Number</label>
+				<br />
 		    	<input
 					type='text'
 					// correct input name for state update
@@ -32,6 +34,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 				<br/>
         		
 				<label>Expiration Date</label>
+				<br />
 				<input
 					type='text'
 					// matching key in the order object
@@ -42,6 +45,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 				<br/>
 				
 				<label>CVV Code</label>
+				<br />
 				<input
 					type='text'
 					// matching key in the order object
@@ -52,6 +56,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 				<br/>
 			
 				<label>Credit Holder Name</label>
+				<br />
             	<input
 					type='text'
 					// matching key in the order object
