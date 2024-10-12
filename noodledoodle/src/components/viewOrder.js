@@ -11,7 +11,7 @@ const ViewOrder = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/purchase/viewConfirmation', { state: { order: order } });
+        navigate('/home/viewConfirmation', { state: { order: order } });
     };
 
     let totalCost = 0;

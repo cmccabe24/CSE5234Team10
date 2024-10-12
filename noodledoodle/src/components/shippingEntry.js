@@ -13,7 +13,7 @@ const ShippingEntry = () => {
 
 
     const handleSubmit = (e) => {
-        navigate('/purchase/viewOrder', { state: { order: order } });
+        navigate('/home/viewOrder', { state: { order: order } });
     }
 
     const handleInputChange = (e) => {

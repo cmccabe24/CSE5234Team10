@@ -11,7 +11,7 @@ const PaymentEntry = () => {
 
     const handleSubmit = (e) => {
 		// pass the state to shippingEntry
-	    navigate('/purchase/shippingEntry', { state: { order: order }});
+	    navigate('/home/shippingEntry', { state: { order: order }});
     }; 
 
 	

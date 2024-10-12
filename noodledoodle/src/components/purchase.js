@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {Link} from "react-router-dom";
+import '../static/purchase.css';
 
 const Purchase = () => {
     let title = "Purchase Page";
@@ -68,41 +69,26 @@ const Purchase = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/purchase/paymentEntry', { state: {order: order}});
+        navigate('/home/paymentEntry', { state: {order: order}});
         console.log('order: ', order);
     };
-
-    const handleAboutUs = (e) => {
-        navigate('/purchase/aboutUs');
-    }
-
-    const handleContactUs = (e) => {
-        navigate('/purchase/contactUs');
-    }
     
     return (
-        <div style={{ backgroundColor: '#f7f0e6', minHeight: '100vh', padding: '20px' }}>
-            <nav style={styles.navBar}>
-                <Link to="/purchase/aboutUs" style={styles.navLink}>About Us</Link>
-                <Link to="/purchase/contactUs" style={styles.navLink}>Contact Us</Link>
+        <div className="purchasePage">
+            <nav className="navBar">
+                <Link to="/home/aboutUs" className="navLink">About Us</Link>
+                <Link to="/home/contactUs" className="navLink">Contact Us</Link>
             </nav>
-            <img src="noodlelogo.png" alt='banner' style={styles.logoImage}/>
-                
-             <img src="noodledoodlebanner.png" alt='banner' style={styles.bannerImage}/>
-             <h2 style={styles.title}>{title}</h2>
-
-            {/* Navigation Buttons Row */}
-            <div style={styles.buttonRow}>
-                <button onClick={handleAboutUs}>About Us</button>
-                <button onClick={handleContactUs}>Contact Us</button>
-            </div>
+            <img src="noodlelogo.png" alt='banner' className="logoImage"/>
+            <img src="noodledoodlebanner.png" alt='banner' className="bannerImage"/>
+            <h2 className="title">{title}</h2>
 
             {/* Flexbox container for products */}
             <form onSubmit={handleSubmit}>
-                <div style={styles.productContainer}>
+                <div className="productContainer">
                     {order.products.map((product, index) => (
-                        <div key={index} style={styles.productItem}>
-                            <img src={`/${product.name.toLowerCase().replace(" ", "")}.png`} alt={product.name} style={styles.productImage} />
+                        <div key={index} className="productItem">
+                            <img src={`/${product.name.toLowerCase().replace(" ", "")}.png`} alt={product.name} className="productImage" />
                             <h2>{product.name}</h2>
                             <h3>${product.price}</h3>
                             <label>Quantity</label>
@@ -122,14 +108,14 @@ const Purchase = () => {
                 </div>
 
                 {/* Cart Section */}
-                <div style={styles.cartContainer}>
+                <div className="cartContainer">
                     <h2>Shopping Cart</h2>
                     {order.cart.length === 0 ? (
                         <p>Your cart is empty</p>
                     ) : (
-                        <ul style={styles.cartList}>
+                        <ul className="cartList">
                             {order.cart.map((item, index) => (
-                                <li key={index} style={styles.cartItem}>
+                                <li key={index} className="cartItem">
                                     <span>{item.name} - ${item.price} x {item.quantity}</span>
                                     <input
                                         type="number"
@@ -149,79 +135,6 @@ const Purchase = () => {
             </form>
         </div>
     );
-};
-
-// Inline styles for Flexbox layout
-const styles = {
-    navBar: {
-        display: 'flex',
-        justifyContent: 'center', // Centering the nav links
-        marginBottom: '20px',
-        backgroundColor: '#ddd',
-        padding: '10px'
-    },
-    navLink: {
-        textDecoration: 'underline',
-        color: '#333',
-        fontSize: '18px',
-        fontWeight: 'bold',
-        margin: '0 15px', // Add space between links
-        cursor: 'pointer'
-    },
-    productContainer: {
-        display: 'flex',               
-        justifyContent: 'center', 
-        alignItems: 'center',         
-        margin: '0px 0',           
-        gap: '100px'  ,
-        marginTop: '30px',  
-        backgroundColor:'#f7f0e6'      
-    },
-    title: {
-        fontFamily: "'Protest Strike', sans-serif", 
-        marginBottom: '50px',
-        fontSize: '50px'
-    },
-    buttonRow: {
-        display: 'flex',
-        justifyContent: 'center', 
-        gap: '20px', 
-        marginBottom: '20px',
-    },
-    productItem: {
-        textAlign: 'center',           
-        width: '150px'                 
-    },
-    productImage: {
-        width: '200px', 
-        height: '300px'
-    },
-    bannerImage: {
-        width: '1410px', 
-        height: '350px'
-    },
-    logoImage: {
-        width: '700px', 
-        height: '300px'
-    },
-    cartContainer: {
-        marginTop: '50px',
-        textAlign: 'left',
-        padding: '20px',
-        border: '1px solid #ccc',
-        borderRadius: '8px',
-        backgroundColor: '#F6CDD5'
-    },
-    cartList: {
-        listStyleType: 'none',
-        padding: 0
-    },
-    cartItem: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: '10px'
-    }
 };
 
 export default Purchase;
