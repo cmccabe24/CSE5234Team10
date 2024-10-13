@@ -6,10 +6,20 @@
 
 
 /* Navigation Bar */
-.navBar {
+.navHomeBar {
     display: flex;
     justify-content: center; 
     margin-bottom: 0px;
     background-color: #ED9BBD;
     padding: 10px;
+    
+}
+
+.navHomeLink {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 30px; /* Add space between links */
+    cursor: pointer;
 }

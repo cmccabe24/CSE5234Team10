@@ -8,19 +8,20 @@
 
 /* Navigation Bar */
 .navBar {
+
     display: flex;
     justify-content: center; 
-    margin-bottom: 20px;
-    background-color: #ddd;
+    margin-bottom: 0px;
+    background-color: #ED9BBD;
     padding: 10px;
 }
 
 .navLink {
-    text-decoration: underline;
-    color: #333;
+    text-decoration: none;
+    color: white;
     font-size: 18px;
     font-weight: bold;
-    margin: 0 15px; /* Add space between links */
+    margin: 0 30px; /* Add space between links */
     cursor: pointer;
 }
 

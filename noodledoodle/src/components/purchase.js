@@ -14,11 +14,13 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
     };
     
     return (
-        <div className="purchasePage">
+        <>
+        
             <nav className="navBar">
                 <Link to="/home/aboutUs" className="navLink">About Us</Link>
                 <Link to="/home/contactUs" className="navLink">Contact Us</Link>
             </nav>
+            <div className="purchasePage">
             <h2 className="title">{title}</h2>
 
             {/* Flexbox container for products */}
@@ -72,6 +74,7 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
                 <button type="submit" className="button" disabled={order.cart.every(quantity => quantity === 0)} > Proceed to Checkout </button>
             </form>
         </div>
+        </>
     );
 };
 
