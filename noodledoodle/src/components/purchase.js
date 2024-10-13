@@ -4,32 +4,6 @@ import '../static/purchase.css';
 
 const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, handleQuantityChange }) => {
     let title = "Purchase Page";
-    
-<<<<<<< HEAD
-    const [order, setOrder] = useState({
-        buyQuantity: [0, 0, 0, 0, 0],
-        products: [
-            {name: 'Art Print', price: 12},
-            {name: 'Candle', price: 20},
-            {name: 'Sticker', price: 5},
-            {name: 'Mug', price: 15},
-            {name: 'Tshirt', price: 25},
-            
-        ],
-        credit_card_number: '',
-        expiration_date: '',
-        cvvCode: '',
-        card_holder_name: '',
-        address_1: '',
-        address_2: '',
-        city: '',
-        state: '',
-        zip: '',
-        cart: []
-    });
-
-=======
->>>>>>> refs/remotes/origin/main
     const navigate = useNavigate();
     
     const handleSubmit = (e) => {
