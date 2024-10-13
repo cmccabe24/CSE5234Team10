@@ -3,6 +3,7 @@
     background-color: #f7f0e6;
     min-height: 100vh;
     padding: 20px;
+
 }
 
 /* Flexbox container for products */
@@ -26,6 +27,16 @@
     height: 250px; 
 }
 
+.shop {
+    
+    width: 100vw;  /* Set width to 100% of the page */
+    height: 400px; /* This maintains the aspect ratio */
+    display: block; /* Remove any inline-block margin */
+    margin: 15; /* Ensure no margin around the image */
+    padding: 0;
+
+}
+
 .bannerImage {
     width: 1410px;
     height: 350px;
@@ -42,7 +53,7 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #F6CDD5;
+    background-color: #FFC95F;
 }
 
 .cartList {
@@ -57,8 +68,19 @@
     margin-bottom: 10px;
 }
 
+.cartItemImage {
+    width: 50px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+}
+
 .title {
     font-family: 'Protest Strike', sans-serif;
     margin-bottom: 50px;
     font-size: 50px;
+}
+
+.checkoutImage {
+    width: 250px; /* Adjust as needed */
+    height: 130px; /* Maintain aspect ratio */
 }
