@@ -22,7 +22,7 @@ const Purchase = () => {
         address_2: '',
         city: '',
         state: '',
-        zip: ''
+        zip: '',
         cart: []
     });
 
