@@ -22,11 +22,11 @@
 }
 
 .error {
-    color: red;                   /* Text color */
-    font-size: 16px;             /* Font size */
-    margin-left: 10px;           /* Space between label and error message */
-    font-weight: bold;            /* Make the text bold */
-    display: inline;              /* Keep it inline with the label */
+    color: red;                   
+    font-size: 16px;             
+    margin-left: 10px;           
+    font-weight: bold;            
+    display: inline;              
     position: fixed;
     margin-top: 4px;
 }
