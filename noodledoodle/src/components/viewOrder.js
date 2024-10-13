@@ -1,45 +1,51 @@
-//test
 import React from 'react';
-import {useState} from 'react';
-import {useNavigate, useLocation} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import '../static/viewOrder.css';  // Adjust the path as per your project structure
 
-const ViewOrder = () => {
-    const location = useLocation();
+const ViewOrder = ({ order, setOrder }) => {
     const navigate = useNavigate();
-
-    const{ order } = location.state;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/purchase/viewConfirmation', { state: { order: order } });
+        navigate('/home/viewConfirmation');
     };
 
     let totalCost = 0;
-    
-    // for loop to calculate the total cost
+
+    // Calculate the total cost
     for (let i = 0; i < order.buyQuantity.length; i++) {
         totalCost += order.buyQuantity[i] * order.products[i].price;
     }
 
-
     return (
-        <div>
-            <h1> Order Summary </h1>
-            <form onSubmit={handleSubmit}>
-            {order.buyQuantity.map((qty, index) => (
-                qty > 0 && (
-                    <h2 key={index}> 
-                        {qty} of {order.products[index].name} for ${qty * order.products[index].price} 
-                    </h2>
-                )
-            ))}
-                <br/>
+        <div className="viewOrder">
+            <h1>Order Summary</h1>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {order.buyQuantity.map((qty, index) => (
+                        qty > 0 && (
+                            <tr key={index}>
+                                <td>{order.products[index].name}</td>
+                                <td>{qty}</td>
+                                <td>${order.products[index].price.toFixed(2)}</td>
+                                <td>${(qty * order.products[index].price).toFixed(2)}</td>
+                            </tr>
+                        )
+                    ))}
+                </tbody>
+            </table>
             
-                <h2> Total cost = ${totalCost} </h2>
-                <br/>
-            
-                <button className='button'>Submit order</button>
-            </form>
+            <h2 className="total-cost">Total cost: ${totalCost.toFixed(2)}</h2>
+
+            <button className="button" onClick={handleSubmit}>Submit Order</button>
         </div>
     );
 };

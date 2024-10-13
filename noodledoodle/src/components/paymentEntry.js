@@ -1,33 +1,25 @@
 import React from 'react';
-import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
+import '../static/paymentEntry.css';
 
-const PaymentEntry = () => {
-	// changed to const from let because we won't be reassigning location 
-	const location = useLocation();
-	const prevOrder = location.state.order;
-	const [order, setOrder] = useState(prevOrder);
+const PaymentEntry = ({order, setOrder, handleInputChange}) => {
+	//const prevOrder = location.state.order;
+	//const [order, setOrder] = useState(prevOrder);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
 		// pass the state to shippingEntry
-	    navigate('/purchase/shippingEntry', { state: { order: order }});
+	    //navigate('/home/shippingEntry', { state: { order: order }});
+		navigate('/home/shippingEntry');
     }; 
 
 	
-	const handleInputChange = (e) => {
-		const { name, value } = e.target;
-		setOrder((order) => ({
-			...order,
-			[name]: value,
-		}));
-	};
-	
 	return ( 
-    	<div>
+		<div class="paymentEntryCss">
 			<h2> Payment Information </h2> 
-			<form onSubmit ={handleSubmit}>
+			<form onSubmit ={handleSubmit} >
 				<label>Credit Card Number</label>
+				<br />
 		    	<input
 					type='text'
 					// correct input name for state update
@@ -39,6 +31,7 @@ const PaymentEntry = () => {
 				<br/>
         		
 				<label>Expiration Date</label>
+				<br />
 				<input
 					type='text'
 					// matching key in the order object
@@ -49,6 +42,7 @@ const PaymentEntry = () => {
 				<br/>
 				
 				<label>CVV Code</label>
+				<br />
 				<input
 					type='text'
 					// matching key in the order object
@@ -59,6 +53,7 @@ const PaymentEntry = () => {
 				<br/>
 			
 				<label>Credit Holder Name</label>
+				<br />
             	<input
 					type='text'
 					// matching key in the order object

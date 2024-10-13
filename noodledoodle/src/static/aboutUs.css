@@ -1,0 +1,113 @@
+/* Overall container styling */
+.aboutUs {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation bar */
+.navBar {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #ff6347;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Header styling */
+.header {
+    text-align: center;
+    color: #ff6347;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+/* Company section styling */
+.company-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.company-section h2 {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #ff6347;
+}
+
+.company-section p {
+    margin-bottom: 15px;
+}
+
+/* Executive section styling */
+.executives-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.executives {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.executive-card {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px;
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.executive-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.executive-card h4 {
+    font-size: 18px;
+    color: #ff6347;
+    margin-bottom: 10px;
+}
+
+.executive-card p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Executive image styling */
+.executive-image {
+    width: 250px;  /* Set desired width */
+    height: 300px; /* Set desired height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin-bottom: 10px; /* Space below the image */
+}
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .executives {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .executive-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .company-section {
+        padding: 15px;
+    }
+}

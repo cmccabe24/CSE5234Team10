@@ -1,34 +1,27 @@
 import React from 'react';
-import {useState} from 'react';
-import {useNavigate, useLocation} from 'react-router-dom';
-
-const ShippingEntry = () => {
+import {useNavigate} from 'react-router-dom';
+import '../static/shippingEntry.css'
+const ShippingEntry = ({handleInputChange}) => {
 
     // changed to const from let because we won't be reassigning location 
-	const location = useLocation();
     const navigate = useNavigate();
 
-    const  prevOrder = location.state.order;
-	const [order, setOrder] = useState(prevOrder); 
+    //const  prevOrder = location.state.order;
+	//const [order, setOrder] = useState(prevOrder); 
 
 
     const handleSubmit = (e) => {
-        navigate('/purchase/viewOrder', { state: { order: order } });
+        //navigate('/home/viewOrder', { state: { order: order } });
+        navigate('/home/viewOrder');
     }
 
-    const handleInputChange = (e) => {
-		const { name, value } = e.target;
-		setOrder((order) => ({
-			...order,
-			[name]: value,
-		}));
-	};
 
     return (
-        <div>
+        <div class= "shippingEntryCss">
             <h2> Shipping Information </h2>
             <form onSubmit={handleSubmit}>
                 <label>Address 1</label>
+                <br />
                 <input
                     type='text'
                     name='address_1'
@@ -38,6 +31,8 @@ const ShippingEntry = () => {
                 <br/>
                 
                 <label>Address 2</label>
+
+                <br />
                 <input
                     type='text'
                     name='address_2'
@@ -46,6 +41,7 @@ const ShippingEntry = () => {
                 <br/>
             
                 <label>City</label>
+                <br />
                 <input
                     type='text'
                     name='city'
@@ -55,6 +51,7 @@ const ShippingEntry = () => {
                 <br/>
             
                 <label>State</label>
+                <br />
                 <input
                     type='text'
                     name='state'
@@ -64,6 +61,7 @@ const ShippingEntry = () => {
                 <br/>
             
                 <label>Zip Code</label>
+                <br />
                 <input
                     type='number'
                     name='zip'

@@ -1,0 +1,84 @@
+
+.purchasePage {
+    background-color: #f7f0e6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+/* Navigation Bar */
+.navBar {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 20px;
+    background-color: #ddd;
+    padding: 10px;
+}
+
+.navLink {
+    text-decoration: underline;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 15px; /* Add space between links */
+    cursor: pointer;
+}
+
+
+/* Flexbox container for products */
+.productContainer {
+    display: flex;               
+    justify-content: center; 
+    align-items: center;         
+    margin: 0px 0;        
+    gap: 100px;
+    margin-top: 30px;  
+    background-color: #f7f0e6;      
+}
+
+.productItem {
+    text-align: center;
+    width: 150px;
+}
+
+.productImage {
+    width: 200px;
+    height: 300px; 
+}
+
+.bannerImage {
+    width: 1410px;
+    height: 350px;
+}
+
+.logoImage {
+    width: 700px;
+    height: 300px;
+}
+
+.cartContainer {
+    margin-top: 50px;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #F6CDD5;
+}
+
+.cartList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cartItem { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-family: 'Protest Strike', sans-serif;
+    margin-bottom: 50px;
+    font-size: 50px;
+}
