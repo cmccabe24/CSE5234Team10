@@ -5,7 +5,7 @@
     background-color: #f4f4f4;
     padding: 20px;
 }
-shippingEntryCss label {
+.shippingEntryCss label {
     font-size: 20px;
     align-items: center;
 }

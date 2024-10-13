@@ -44,7 +44,7 @@ const AboutUs = () => {
 
                     {/* Executive 3 */}
                     <div className="executive-card">
-                        <h3>Caleb McCabe</h3>
+                        <h3>Connor McCabe</h3>
                         <h4>___ & Co-Founder</h4>
                         <p>Add info here</p>
                     </div>

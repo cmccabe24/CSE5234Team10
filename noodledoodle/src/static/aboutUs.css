@@ -7,19 +7,6 @@
     line-height: 1.6;
 }
 
-/* Navigation bar */
-.navBar {
-    margin-bottom: 20px;
-    text-align: right;
-}
-
-.navLink {
-    text-decoration: none;
-    color: #ff6347;
-    font-size: 18px;
-    font-weight: bold;
-}
-
 /* Header styling */
 .header {
     text-align: center;

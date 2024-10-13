@@ -11,6 +11,7 @@ import ViewConfirmation from "./components/viewConfirmation";
 import AboutUs from "./components/aboutUs";
 import ContactUs from "./components/contactUs";
 import './static/purchase.css';
+import './static/global.css';
 
 
 function App() {
