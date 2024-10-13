@@ -1,0 +1,15 @@
+.homePage {
+    background-color: #f7f0e6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+/* Navigation Bar */
+.navBar {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 0px;
+    background-color: #ED9BBD;
+    padding: 10px;
+}
