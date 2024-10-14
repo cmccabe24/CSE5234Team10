@@ -15,15 +15,13 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
     
     return (
         <>
-        
             <nav className="navBar">
+                <Link to="/home" className="navLink">Home</Link>
                 <Link to="/home/aboutUs" className="navLink">About Us</Link>
                 <Link to="/home/contactUs" className="navLink">Contact Us</Link>
             </nav>
             <img src="/shopProdWave.png" alt='Prodbanner'className="shop"/>
             <div className="purchasePage">
-             
-    
 
             {/* Flexbox container for products */}
             <form onSubmit={handleSubmit}>

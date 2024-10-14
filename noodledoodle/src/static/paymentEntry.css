@@ -6,15 +6,12 @@
 }
 .paymentEntryCss label {
     font-size: 20px;
-    align-items: center;
-
+    text-decoration: underline;
 }
 .paymentEntryCss form {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin: 0 auto;
-    text-decoration: underline;
-
 }
 .paymentEntryCss input {
     margin-bottom: 10px;
@@ -22,4 +19,14 @@
 }
 .paymentEntryCss h2 {
     color: #ff6347;
+}
+
+.error {
+    color: red;                   
+    font-size: 16px;             
+    margin-left: 10px;           
+    font-weight: bold;            
+    display: inline;              
+    position: fixed;
+    margin-top: 4px;
 }

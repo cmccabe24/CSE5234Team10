@@ -3,21 +3,16 @@ import {useNavigate} from 'react-router-dom';
 import '../static/shippingEntry.css'
 const ShippingEntry = ({handleInputChange}) => {
 
-    // changed to const from let because we won't be reassigning location 
     const navigate = useNavigate();
 
-    //const  prevOrder = location.state.order;
-	//const [order, setOrder] = useState(prevOrder); 
-
-
     const handleSubmit = (e) => {
-        //navigate('/home/viewOrder', { state: { order: order } });
+        e.preventDefault();
         navigate('/home/viewOrder');
     }
 
 
     return (
-        <div class= "shippingEntryCss">
+        <div className= "shippingEntryCss">
             <h2> Shipping Information </h2>
             <form onSubmit={handleSubmit}>
                 <label>Address 1</label>
