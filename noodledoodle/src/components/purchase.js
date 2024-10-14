@@ -60,8 +60,8 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
                                     <li key={index} className="cartItem">
                                         <div className="cartItemDetails">
                                         <img src={`/${item.name.toLowerCase().replace(" ", "")}.png`} alt={item.name} className="cartItemImage" />
-                                            <span>{item.name} - ${item.price} x {item.quantity}</span>
                                         </div>
+                                        <span>{item.name} - ${item.price} x {item.quantity}</span>
                                         <input
                                             type="number"
                                             min="1"
