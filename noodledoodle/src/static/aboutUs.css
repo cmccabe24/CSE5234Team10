@@ -2,7 +2,7 @@
 .aboutUs {
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f7f0e6;
     color: #333;
     line-height: 1.6;
 }
@@ -97,4 +97,10 @@
     .company-section {
         padding: 15px;
     }
+}
+
+.aboutUsImage {
+    width: 1200px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+    
 }

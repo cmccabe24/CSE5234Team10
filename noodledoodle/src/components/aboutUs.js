@@ -4,16 +4,19 @@ import '../static/aboutUs.css'; // Assuming your CSS is stored here
 
 const AboutUs = () => {
     return (
-        <div className="aboutUs">
-            <nav className="navBar">
+       <>
+       <nav className="navBar">
                 <Link to="/home" className="navLink">Home</Link>
             </nav>
-            <img src="/about1.png" alt='aboutus'/>
-            <img src="/about2.png" alt='aboutus'/>
-            <img src="/about3.png" alt='aboutus'/>
-            <img src="/about4.png" alt='aboutus'/>
+        <div className="aboutUs">
+            
+            <img src="/about1.png" alt='aboutus' className='aboutUsImage'/>
+            <img src="/about2.png" alt='aboutus'className='aboutUsImage'/>
+            <img src="/about3.png" alt='aboutus'className='aboutUsImage'/>
+            <img src="/about4.png" alt='aboutus'className='aboutUsImage'/>
         
         </div>
+        </> 
     );
 };
 
