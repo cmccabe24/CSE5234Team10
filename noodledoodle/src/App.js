@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate, Link} from "react-router-dom";
 import Home from "./components/home";
 import Purchase from "./components/purchase";
