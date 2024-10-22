@@ -2,10 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import '../static/purchase.css';
-import { getInventory } from '../apiService'; // Adjust the path as necessary
 
 
-const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, handleQuantityChange }) => {
+const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, handleQuantityChange, inventory, setInventory}) => {
     let title = "Purchase Page";
     const navigate = useNavigate();
     
@@ -15,29 +14,6 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
         navigate('/home/paymentEntry');
         console.log('order: ', order);
     };
-
-    const [inventory, setInventory] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const fetchInventory = async () => {
-            try {
-                const data = await getInventory();
-                console.log("Fetched data", data);
-                setInventory(data.inventory); // Assuming response has { inventory: [...] }
-            } catch (err) {
-                setError('Failed to load inventory');
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchInventory();
-    }, []);
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
     
     {/*   Hardcoded order useState
     return (
@@ -158,7 +134,7 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
                         ) : (
                             <ul className="cartList">
                                 {order.cart.map((item, index) => (
-                                    <li key={index} className="cartItem">
+                                    <li key={item.id} className="cartItem">
                                         <div className="cartItemDetails">
                                         <img src={`/${item.name.toLowerCase().replace(" ", "")}.png`} alt={item.name} className="cartItemImage" />
                                         </div>
@@ -167,9 +143,9 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
                                             type="number"
                                             min="1"
                                             value={item.quantity}
-                                            onChange={(e) => handleQuantityChange(index, e.target.value)}
+                                            onChange={(e) => handleQuantityChange(item.id, e.target.value)}
                                         />
-                                        <button type="button" onClick={() => handleRemoveFromCart(index)}>Remove</button>
+                                        <button type="button" onClick={() => handleRemoveFromCart(item.id)}>Remove</button>                                        
                                     </li>
                                 ))}
                             </ul>
