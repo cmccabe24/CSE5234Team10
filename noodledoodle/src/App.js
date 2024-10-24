@@ -25,17 +25,12 @@ function App() {
         {name: 'Mug', price: 15},
         {name: 'Tshirt', price: 25},
     ],
-    credit_card_number: '',
-    expiration_date: '',
-    cvvCode: '',
-    card_holder_name: '',
-    address_1: '',
-    address_2: '',
-    city: '',
-    state: '',
-    zip: '',
-    cart: []
+    cart: [],
+    payment_details: [],
+    shipping_details: []
   });
+
+  const [orderState, setOrderState] = useState({ status: "", data: {} });
 
   const [inventory, setInventory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -122,11 +117,27 @@ const handleQuantityChange = (index, newQuantity) => {
 };
 
 const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setOrder((order) => ({
-    ...order,
-    [name]: value,
-  }));
+  const { name, value, dataset } = e.target;
+
+  setOrder((order) => {
+    const updatedOrder = { ...order };
+
+    if (dataset.section === 'payment') {
+      // Update payment details
+      updatedOrder.payment_details = {
+        ...order.payment_details,
+        [name]: value
+      };
+    } else if (dataset.section === 'shipping') {
+      // Update shipping details
+      updatedOrder.shipping_details = {
+        ...order.shipping_details,
+        [name]: value
+      };
+    }
+
+    return updatedOrder;
+  });
 };
 
   if (loading) return <div>Loading...</div>;
@@ -147,8 +158,8 @@ const handleInputChange = (e) => {
       <Route path='/home/contactUs' element={<ContactUs/>} /> 
       <Route path='/home/paymentEntry' element={<PaymentEntry order={order} setOrder={setOrder} handleInputChange={handleInputChange}/>} />
       <Route path='/home/shippingEntry' element={<ShippingEntry handleInputChange={handleInputChange}/>} />
-      <Route path='/home/viewOrder' element={<ViewOrder order={order} setOrder={setOrder}/>} />
-      <Route path='/home/viewConfirmation' element={<ViewConfirmation order={order}/>} />
+      <Route path='/home/viewOrder' element={<ViewOrder order={order} setOrderState={setOrderState}/>} />
+      <Route path='/home/viewConfirmation' element={<ViewConfirmation orderState={orderState}/>} />
       </Routes>
       </div>
     </Router>

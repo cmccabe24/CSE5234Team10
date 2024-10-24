@@ -21,6 +21,7 @@ const ShippingEntry = ({handleInputChange}) => {
                     type='text'
                     name='address_1'
                     required
+                    data-section='shipping'
                     onChange={handleInputChange}
                 />
                 <br/>
@@ -31,6 +32,7 @@ const ShippingEntry = ({handleInputChange}) => {
                 <input
                     type='text'
                     name='address_2'
+                    data-section='shipping'
                     onChange={handleInputChange}
                 />
                 <br/>
@@ -41,6 +43,7 @@ const ShippingEntry = ({handleInputChange}) => {
                     type='text'
                     name='city'
                     required
+                    data-section='shipping'
                     onChange={handleInputChange}
                 />
                 <br/>
@@ -51,6 +54,7 @@ const ShippingEntry = ({handleInputChange}) => {
                     type='text'
                     name='state'
                     required
+                    data-section='shipping'
                     onChange={handleInputChange}
                 />
                 <br/>
@@ -61,6 +65,7 @@ const ShippingEntry = ({handleInputChange}) => {
                     type='number'
                     name='zip'
                     required
+                    data-section='shipping'
                     onChange={handleInputChange}
                 />
                 <br/>

@@ -1,13 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../static/viewOrder.css';  // Adjust the path as per your project structure
+import axios from 'axios';
+const API_BASE_URL = 'https://9fhq16841a.execute-api.us-east-2.amazonaws.com/dev';
 
-const ViewOrder = ({ order, setOrder }) => {
+const ViewOrder = ({ order, setOrderState }) => {
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        navigate('/home/viewConfirmation');
+
+        try {
+            // Make the API call to order-processing Lambda function
+            const response = await axios.post(`${API_BASE_URL}/order-processing/order`, order);
+            // Navigate to the confirmation page
+            if (response.status === 200) {
+                setOrderState({ status: "success", data: response.data });
+            } else {
+                setOrderState({ status: "fail", data: response.data });
+            }
+            navigate('/home/viewConfirmation'); 
+            
+        } catch (error) {
+            console.error('Error processing the order:', error);
+            // Handle the error accordingly
+        }
     };
 
     let totalCost = 0;

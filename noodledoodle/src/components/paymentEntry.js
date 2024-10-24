@@ -11,7 +11,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 
 		const validationErrors = validateForm();
 		console.log("validation: ", validationErrors);
-		if (Object.keys(validationErrors).length == 0) {
+		if (Object.keys(validationErrors).length === 0) {
 			navigate('/home/shippingEntry');
 		} else {
 			setErrors(validationErrors);
@@ -23,7 +23,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 
         // Credit Card Number: 16 digits
         const validCreditCard = /^\d{16}$/;
-        if (!validCreditCard.test(order.credit_card_number)) {
+        if (!validCreditCard.test(order.payment_details.credit_card_number)) {
             newErrors.credit_card_number = 'Invalid credit card number. Must be 16 digits.';
         } else {
 			delete newErrors.credit_card_number;
@@ -31,7 +31,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 		
         // Expiration Date: MM/YY format
         const validExpirationDate = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
-        if (!validExpirationDate.test(order.expiration_date)) {
+        if (!validExpirationDate.test(order.payment_details.expiration_date)) {
             newErrors.expiration_date = 'Invalid expiration date. Use MM/YY format.';
         } else {
 			delete newErrors.expiration_date;
@@ -39,7 +39,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 
         // CVV Code: 3-4 digits
         const validCVV = /^[0-9]{3,4}$/;
-        if (!validCVV.test(order.cvvCode)) {
+        if (!validCVV.test(order.payment_details.cvvCode)) {
             newErrors.cvvCode = 'Invalid CVV. Must be 3 or 4 digits.';
         } else {
 			delete newErrors.cvvCode;
@@ -47,7 +47,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 
         // Card Holder Name: Only letters and spaces
         const validHolderName = /^[a-zA-Z\s]+$/;
-        if (!validHolderName.test(order.card_holder_name)) {
+        if (!validHolderName.test(order.payment_details.card_holder_name)) {
             newErrors.card_holder_name = 'Invalid name. Only letters and spaces allowed.';
         } else {
 			delete newErrors.card_holder_name;
@@ -69,6 +69,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 					// correct input name for state update
 					name='credit_card_number' 
 					required
+					data-section='payment'
 					onChange={handleInputChange}
 					
 				/>
@@ -82,6 +83,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
                 	type='text'
                 	name='expiration_date'
                 	required
+					data-section='payment'
                 	onChange={handleInputChange}
             	/>
             	<br/>				
@@ -94,6 +96,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 					// matching key in the order object
 					name='cvvCode'
 					required
+					data-section='payment'
 					onChange={handleInputChange}
 				/>
 				<br/>
@@ -106,6 +109,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 					// matching key in the order object
 					name='card_holder_name'
 					required
+					data-section='payment'
 					onChange={handleInputChange}
 				/>
 				<br/>
