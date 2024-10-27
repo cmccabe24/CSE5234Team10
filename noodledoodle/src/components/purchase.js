@@ -10,9 +10,7 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        //navigate('/home/paymentEntry', { state: {order: order}});
         navigate('/home/paymentEntry');
-        console.log('order: ', order);
     };
     
     return (
@@ -80,7 +78,7 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
             type="submit" 
             className="button" 
             disabled={order.cart.every(quantity => quantity === 0)} 
-            style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer' }} // Optional styles
+            style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer' }} 
         >
             <img src="/shopCheckout.png" alt="Proceed to Checkout" className="checkoutImage" />
         </button>

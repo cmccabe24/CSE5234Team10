@@ -12,19 +12,12 @@ import AboutUs from "./components/aboutUs";
 import ContactUs from "./components/contactUs";
 import './static/purchase.css';
 import './static/global.css';
-import { getInventory, getItemById} from './apiService'; // Adjust the path as necessary
+import { getInventory, getItemById } from './apiService'; 
 
 
 function App() {
   const [order, setOrder] = useState({
-    buyQuantity: [0, 0, 0, 0, 0],
-    products: [
-        {name: 'Art Print', price: 12},
-        {name: 'Candle', price: 20},
-        {name: 'Sticker', price: 5},
-        {name: 'Mug', price: 15},
-        {name: 'Tshirt', price: 25},
-    ],
+    buyQuantity: [],
     cart: [],
     payment_details: [],
     shipping_details: []
@@ -40,8 +33,8 @@ function App() {
     const fetchInventory = async () => {
         try {
             const data = await getInventory();
-            //console.log("Fetched data", data);
-            setInventory(data.inventory); // Assuming response has { inventory: [...] }
+            setInventory(data.inventory); 
+            setOrder({...order, buyQuantity: Array(inventory.length).fill(0)});
         } catch (err) {
             setError('Failed to load inventory');
         } finally {
@@ -52,7 +45,6 @@ function App() {
     fetchInventory();
   }, []);
 
-  {/* New Way */}
   const handleAddToCart = async (itemId) => {
     try {
       const response = await getItemById(itemId);
@@ -64,7 +56,8 @@ function App() {
       const amountOrdered = order.buyQuantity[itemId - 1];
 
       if (amountOrdered > 0) {
-        if (amountOrdered <= quantity) {
+        // took out so order function can check for stock 
+        //if (amountOrdered <= quantity) {
           const newCart = [...order.cart];
           const existingItemIndex = newCart.findIndex(cartItem => cartItem.name === productName)
 
@@ -74,13 +67,13 @@ function App() {
             newCart.push({ ...item, quantity: parseInt(amountOrdered, 10) });
           }
         
-          setOrder({ ...order, cart: newCart });
+          setOrder({ ...order, amountOrdering: 0, cart: newCart });
 
           /* (Add) Update lambda's stock? */
 
-        } else {
-          console.error("Not enough in stock");
-        }
+        //} else {
+        //  console.error("Not enough in stock");
+        //}
       }
     } catch(error) {
       console.error("Error adding item to cart:", error);
@@ -98,18 +91,11 @@ function App() {
       setOrder({ ...order, cart: newCart, buyQuantity: updatedBuyQuantity});
   };
 
-  useEffect(() => {
-    console.log("After state update: ", order.buyQuantity);
-    console.log("cart: ", order.cart);
-  }, [order]);  // This will trigger whenever `order` changes, logging the updated value
-
-
 const handleQuantityChange = (index, newQuantity) => {
     const cartIndex = order.cart.findIndex(cartItem => cartItem.id === index);
     const newCart = [...order.cart];
     newCart[cartIndex].quantity = parseInt(newQuantity, 10);
 
-    //const productIndex = order.products.findIndex(product => product.name === order.cart[index].name);
     const updatedBuyQuantity = [...order.buyQuantity];
     updatedBuyQuantity[index-1] = parseInt(newQuantity, 10);
 

@@ -30,8 +30,8 @@ const ViewOrder = ({ order, setOrderState }) => {
     let totalCost = 0;
 
     // Calculate the total cost
-    for (let i = 0; i < order.buyQuantity.length; i++) {
-        totalCost += order.buyQuantity[i] * order.products[i].price;
+    for (let i = 0; i < order.cart.length; i++) {
+        totalCost += order.cart[i].quantity * order.cart[i].price;
     }
 
     return (
@@ -47,13 +47,13 @@ const ViewOrder = ({ order, setOrderState }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {order.buyQuantity.map((qty, index) => (
-                        qty > 0 && (
+                    {order.cart.map((item, index) => (
+                        item.quantity > 0 && (
                             <tr key={index}>
-                                <td>{order.products[index].name}</td>
-                                <td>{qty}</td>
-                                <td>${order.products[index].price.toFixed(2)}</td>
-                                <td>${(qty * order.products[index].price).toFixed(2)}</td>
+                                <td>{item.name}</td>
+                                <td>{item.quantity}</td>
+                                <td>${item.price.toFixed(2)}</td>
+                                <td>${(item.quantity * item.price).toFixed(2)}</td>
                             </tr>
                         )
                     ))}
@@ -64,7 +64,7 @@ const ViewOrder = ({ order, setOrderState }) => {
 
             <button className="button" onClick={handleSubmit}>Submit Order</button>
         </div>
-    );
+        );
 };
 
 export default ViewOrder;
