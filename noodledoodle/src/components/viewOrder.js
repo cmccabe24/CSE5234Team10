@@ -26,7 +26,7 @@ const ViewOrder = ({ order, setOrderState}) => {
         } catch (error) {
             console.error('Invalid order due to unavailable inventory', error);
 
-            setErrorMessage('Invalid order due to unavailable inventory');
+            setErrorMessage('Invalid order due to unavailable inventory!');
         }
     };
 
@@ -39,6 +39,7 @@ const ViewOrder = ({ order, setOrderState}) => {
 
     return (
         <div className="viewOrder">
+            {errorMessage && <h2 className="error-message">{errorMessage}</h2>}
             <h1>Order Summary</h1>
             <table className="table">
                 <thead>
@@ -66,8 +67,6 @@ const ViewOrder = ({ order, setOrderState}) => {
             <h2 className="total-cost">Total cost: ${totalCost.toFixed(2)}</h2>
 
             <button className="button" onClick={handleSubmit}>Submit Order</button>
-
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         </div>
         );
