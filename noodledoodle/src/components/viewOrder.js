@@ -2,10 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../static/viewOrder.css';  // Adjust the path as per your project structure
 import axios from 'axios';
+import {useState } from "react";
 const API_BASE_URL = 'https://9fhq16841a.execute-api.us-east-2.amazonaws.com/dev';
 
-const ViewOrder = ({ order, setOrderState }) => {
+const ViewOrder = ({ order, setOrderState}) => {
     const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,8 +24,9 @@ const ViewOrder = ({ order, setOrderState }) => {
             navigate('/home/viewConfirmation'); 
             
         } catch (error) {
-            console.error('Error processing the order:', error);
-            // Handle the error accordingly
+            console.error('Invalid order due to unavailable inventory', error);
+
+            setErrorMessage('Invalid order due to unavailable inventory');
         }
     };
 
@@ -63,6 +66,9 @@ const ViewOrder = ({ order, setOrderState }) => {
             <h2 className="total-cost">Total cost: ${totalCost.toFixed(2)}</h2>
 
             <button className="button" onClick={handleSubmit}>Submit Order</button>
+
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+
         </div>
         );
 };
