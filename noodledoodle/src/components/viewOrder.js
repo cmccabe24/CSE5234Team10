@@ -10,6 +10,7 @@ const ViewOrder = ({ order, setOrderState}) => {
     const [errorMessage, setErrorMessage] = useState('');
 
     console.log("order: ", order);
+    console.log("shipping: ", order.shipping_details.address1);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
