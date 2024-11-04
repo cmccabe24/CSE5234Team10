@@ -67,7 +67,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 		    	<input
 					type='text'
 					// correct input name for state update
-					name='credit_card_number' 
+					name='cardNumber' 
 					required
 					data-section='payment'
 					onChange={handleInputChange}
@@ -81,7 +81,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 				<br />
             	<input
                 	type='text'
-                	name='expiration_date'
+                	name='expirationDate'
                 	required
 					data-section='payment'
                 	onChange={handleInputChange}
@@ -94,7 +94,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
 				<input
 					type='text'
 					// matching key in the order object
-					name='cvvCode'
+					name='cvv'
 					required
 					data-section='payment'
 					onChange={handleInputChange}
@@ -107,7 +107,7 @@ const PaymentEntry = ({order, setOrder, handleInputChange}) => {
             	<input
 					type='text'
 					// matching key in the order object
-					name='card_holder_name'
+					name='cardholderName'
 					required
 					data-section='payment'
 					onChange={handleInputChange}

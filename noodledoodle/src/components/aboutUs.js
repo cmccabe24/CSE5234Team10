@@ -13,7 +13,7 @@ const AboutUs = () => {
             <img src="/about1.png" alt='aboutus' className='aboutUsImage'/>
             <img src="/about2.png" alt='aboutus'className='aboutUsImage'/>
             <img src="/about3.png" alt='aboutus'className='aboutUsImage'/>
-            <img src="/about4.png" alt='aboutus'className='aboutUsImage'/>
+            <img src="/about6.png" alt='aboutus'className='aboutUsImage'/>
         
         </div>
         </> 
