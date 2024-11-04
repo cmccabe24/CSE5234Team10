@@ -54,19 +54,19 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
                         ) : (
                             <ul className="cartList">
                                 {order.cart.map((item, index) => (
-                                    <li key={item.id} className="cartItem">
+                                    <li key={item.itemNumber} className="cartItem">
                                         <div className="cartItemDetails">
                                         <img src={`/${item.name.toLowerCase().replace(" ", "")}.png`} alt={item.name} className="cartItemImage" />
                                         </div>
-                                        <span>{item.name} - ${item.price} x {item.quantity}</span>
+                                        <span>{item.name} - ${item.unitPrice} x {item.quantity}</span>
                                         <input
                                             type="number"
                                             min="1"
                                             value={item.quantity}
-                                            onChange={(e) => handleQuantityChange(item.id, e.target.value)}
+                                            onChange={(e) => handleQuantityChange(item.itemNumber, e.target.value)}
                                         />
-                                        <button type="button" onClick={() => handleRemoveFromCart(item.id)}>Remove</button>                                        
-                                    </li>
+                                        <button type="button" onClick={() => handleRemoveFromCart(item.itemNumber)}>Remove</button>                                        
+                                    </li>  
                                 ))}
                             </ul>
                         )}

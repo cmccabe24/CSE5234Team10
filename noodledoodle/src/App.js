@@ -51,14 +51,13 @@ function App() {
       const response = await getItemById(itemId);
       console.log("Item from id: ", response);
 
-      const item = response.data[0];
+      const item = response.data;
+      console.log("Item: ", item);
       const productName = item.name;
       const quantity = item.quantity;
       const amountOrdered = order.buyQuantity[itemId - 1];
 
       if (amountOrdered > 0) {
-        // took out so order function can check for stock 
-        //if (amountOrdered <= quantity) {
           const newCart = [...order.cart];
           const existingItemIndex = newCart.findIndex(cartItem => cartItem.name === productName)
 
@@ -72,9 +71,6 @@ function App() {
 
           /* (Add) Update lambda's stock? */
 
-        //} else {
-        //  console.error("Not enough in stock");
-        //}
       }
     } catch(error) {
       console.error("Error adding item to cart:", error);
