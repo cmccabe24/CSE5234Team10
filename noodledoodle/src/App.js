@@ -34,6 +34,7 @@ function App() {
         try {
             const data = await getInventory();
             setInventory(data.inventory); 
+            console.log("Response: ", data.inventory);
             setOrder({...order, buyQuantity: Array(inventory.length).fill(0)});
         } catch (err) {
             setError('Failed to load inventory');

@@ -26,10 +26,10 @@ const Purchase = ({ order, setOrder, handleAddToCart, handleRemoveFromCart, hand
                 <form onSubmit={handleSubmit}>
                     <div className="productContainer">
                         {inventory.map((item, index) => (
-                            <div key={item.id} className="productItem">
+                            <div key={item.itemNumber} className="productItem">
                                 <img src={`/${item.name.toLowerCase().replace(" ", "")}.png`} alt={item.name} className="productImage" />
                                 <h2>{item.name}</h2>
-                                <h3>${item.price}</h3>
+                                <h3>${item.unitPrice}</h3>
                                 <label>Quantity</label>
                                 <input
                                     type="number"
