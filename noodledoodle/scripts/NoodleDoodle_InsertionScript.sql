@@ -1,7 +1,7 @@
 -- inserting in data
 
 -- adding items
-INSERT INTO ITEM (ITEM_NUMBER, NAME, DESCRIPTION, AVAILABLE_QUANTITY, UNIT_PRICE)
+INSERT INTO ITEM (itemNumber, name, description, availableQuantity, unitPrice)
 VALUES 
     (1, 'Mug', 'White ceramic mug with noodle print', 100, 15.00),
     (2, 'Candle', 'Warm ramen scented candle', 100, 20.00),
