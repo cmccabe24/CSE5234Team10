@@ -9,12 +9,16 @@ const ViewOrder = ({ order, setOrderState}) => {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
 
+    console.log("order: ", order);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
+            console.log("Before call");
             // Make the API call to order-processing Lambda function
             const response = await axios.post(`${API_BASE_URL}/order-processing/order`, order);
+            console.log("After ");
             // Navigate to the confirmation page
             if (response.status === 200) {
                 setOrderState({ status: "success", data: response.data });
@@ -34,7 +38,7 @@ const ViewOrder = ({ order, setOrderState}) => {
 
     // Calculate the total cost
     for (let i = 0; i < order.cart.length; i++) {
-        totalCost += order.cart[i].quantity * order.cart[i].price;
+        totalCost += order.cart[i].quantity * order.cart[i].unitPrice;
     }
 
     return (
@@ -56,8 +60,8 @@ const ViewOrder = ({ order, setOrderState}) => {
                             <tr key={index}>
                                 <td>{item.name}</td>
                                 <td>{item.quantity}</td>
-                                <td>${item.price.toFixed(2)}</td>
-                                <td>${(item.quantity * item.price).toFixed(2)}</td>
+                                <td>${item.unitPrice.toFixed(2)}</td>
+                                <td>${(item.quantity * item.unitPrice).toFixed(2)}</td>
                             </tr>
                         )
                     ))}

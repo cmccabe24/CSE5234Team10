@@ -3,6 +3,7 @@ import '../static/viewConfirmation.css'; // Use the same CSS file to keep styles
 
 const ViewConfirmation = ({ orderState }) => {
     const isSuccess = orderState.status === "success";
+    console.log("Huh: ", orderState);
     return (
         <div className="viewConfirmation">
             {isSuccess ? (
@@ -48,7 +49,7 @@ const ViewConfirmation = ({ orderState }) => {
                         <tbody>
                             {orderState.data.unavailableItems.map((item, index) => (
                                 <tr key={index}>
-                                    <td>{item.item_id}</td> {/* Replace with item name if you have that information */}
+                                    <td>{item.itemNumber}</td> {/* Replace with item name if you have that information */}
                                     <td>{item.requested}</td>
                                     <td>{item.available}</td>
                                 </tr>

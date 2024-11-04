@@ -19,7 +19,7 @@ const ShippingEntry = ({handleInputChange}) => {
                 <br />
                 <input
                     type='text'
-                    name='address_1'
+                    name='address1'
                     required
                     data-section='shipping'
                     onChange={handleInputChange}
@@ -31,7 +31,7 @@ const ShippingEntry = ({handleInputChange}) => {
                 <br />
                 <input
                     type='text'
-                    name='address_2'
+                    name='address2'
                     data-section='shipping'
                     onChange={handleInputChange}
                 />
@@ -63,7 +63,7 @@ const ShippingEntry = ({handleInputChange}) => {
                 <br />
                 <input
                     type='number'
-                    name='zip'
+                    name='zipCode'
                     required
                     data-section='shipping'
                     onChange={handleInputChange}
