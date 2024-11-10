@@ -21,7 +21,7 @@ const ViewConfirmation = ({ orderState }) => {
                             </tr>
                         </thead>
                         <tbody>
-                        {orderState.data.order_details.cart.map((item, index) => (
+                        {orderState.data.order_details.map((item, index) => (
                             item.quantity > 0 && (
                                 <tr key={index}>
                                     <td>{item.name}</td>
