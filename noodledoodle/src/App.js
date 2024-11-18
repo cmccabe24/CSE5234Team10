@@ -130,7 +130,7 @@ const handleInputChange = (e) => {
     <div className="App">
     <Router>
       <Link to="/home">
-        <img src="noodlelogo.png" alt='logo' className="logoImage" />
+        <img src="/noodlelogo.png" alt='logo' className="logoImage" />
       </Link>
       <div className="content">
       <Routes>

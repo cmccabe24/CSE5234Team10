@@ -14,7 +14,7 @@ return (
         
         </nav>
         <div className="page">
-        <img src="noodledoodlebanner.png" alt='banner' className="bannerImage"/>
+        <img src="/noodledoodlebanner.png" alt='banner' className="bannerImage"/>
     </div>
     </>
     
